@@ -14,14 +14,11 @@ class ProductListFragment : Fragment() {
 
     private var viewModel: ProductListViewModel? = null
 
-    companion object {
-        fun newInstance() = ProductListFragment()
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         val binding: ProductListFragmentBinding = DataBindingUtil.inflate(
             inflater, R.layout.product_list_fragment, container, false
         )
@@ -35,6 +32,7 @@ class ProductListFragment : Fragment() {
         viewModel?.products?.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
+
         viewModel?.fetchProducts()
 
         return binding.root

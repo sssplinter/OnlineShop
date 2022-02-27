@@ -1,7 +1,6 @@
 package com.kristina.onlineshopapp.ui.product.list
 
 import android.content.Context
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kristina.onlineshopapp.data.db.ShopDatabase
