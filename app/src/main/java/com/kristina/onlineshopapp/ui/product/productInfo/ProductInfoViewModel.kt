@@ -23,5 +23,4 @@ class ProductInfoViewModel(product: Product, app: Application) : AndroidViewMode
     }
 
 
-
 }

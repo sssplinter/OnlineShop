@@ -1,5 +1,6 @@
 package com.kristina.onlineshopapp.ui.product.list
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -8,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.kristina.onlineshopapp.databinding.ProductItemBinding
 import com.kristina.onlineshopapp.domain.model.Product
 
-class ProductAdapter (private val onClickListener: OnClickListener): ListAdapter<Product, ProductViewHolder>(this) {
+class ProductAdapter (private val onClick: OnClick): ListAdapter<Product, ProductViewHolder>(this) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         return ProductViewHolder.from(parent)
@@ -16,13 +17,14 @@ class ProductAdapter (private val onClickListener: OnClickListener): ListAdapter
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val product = getItem(position)
-//        holder.itemView.setOnClickListener{
-//            val position = holder.bindingAdapterPosition
-//            if(position != RecyclerView.NO_POSITION){
-//                onClickListener.onClick(product)
-//            }
-//
-//        }
+        holder.itemView.setOnClickListener{
+            val position = holder.bindingAdapterPosition
+            if(position != RecyclerView.NO_POSITION){
+                onClick.sendData(product)
+                Log.i("Click", "selected $position item")
+            }
+
+        }
         holder.bind(product)
     }
 
@@ -41,8 +43,8 @@ class ProductAdapter (private val onClickListener: OnClickListener): ListAdapter
         }
     }
 
-    class OnClickListener(val clickListener: (product:Product) -> Unit){
-        fun onClick(product: Product) = clickListener(product)
+    interface OnClick{
+        fun sendData(product: Product)
     }
 }
 
