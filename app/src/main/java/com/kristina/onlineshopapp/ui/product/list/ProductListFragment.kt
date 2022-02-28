@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import com.kristina.onlineshopapp.R
 import com.kristina.onlineshopapp.databinding.ProductListFragmentBinding
 
@@ -23,12 +24,24 @@ class ProductListFragment : Fragment() {
             inflater, R.layout.product_list_fragment, container, false
         )
 
-        val adapter = ProductAdapter()
+        val viewModelFactory = ProductListViewModelFactory(binding.root.context.applicationContext)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(ProductListViewModel::class.java)
+
+        val adapter = ProductAdapter(ProductAdapter.OnClickListener { product ->
+            viewModel?.displayProductInfo(product)
+        })
         binding.productList.adapter = adapter
 
-        val viewModelFactory = ProductListViewModelFactory(binding.root.context.applicationContext)
+        viewModel!!.navigateToSelectedProduct.observe(viewLifecycleOwner) {
+            if (null != it) {
+//                this.findNavController().navigate(
+//                   // ProductListFragmentDirections.actionProductListFragmentToProductInfoFragment
+//                )actionProductListFragmentToProductInfoFragment
+                viewModel?.displayProductInfoComplete()
+            }
+        }
 
-        viewModel = ViewModelProvider(this, viewModelFactory).get(ProductListViewModel::class.java)
+
         viewModel?.products?.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }

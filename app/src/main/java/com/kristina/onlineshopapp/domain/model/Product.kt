@@ -1,5 +1,10 @@
 package com.kristina.onlineshopapp.domain.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+
+@Parcelize
 data class Product(
     val id: Long,
     val category: String,
@@ -9,4 +14,4 @@ data class Product(
     val description: String,
     val favourite: Boolean = false,
     val comment: String = ""
-)
+) : Parcelable

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.kristina.onlineshopapp.databinding.ProductItemBinding
 import com.kristina.onlineshopapp.domain.model.Product
 
-class ProductAdapter : ListAdapter<Product, ProductViewHolder>(this) {
+class ProductAdapter (private val onClickListener: OnClickListener): ListAdapter<Product, ProductViewHolder>(this) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         return ProductViewHolder.from(parent)
@@ -16,6 +16,13 @@ class ProductAdapter : ListAdapter<Product, ProductViewHolder>(this) {
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val product = getItem(position)
+//        holder.itemView.setOnClickListener{
+//            val position = holder.bindingAdapterPosition
+//            if(position != RecyclerView.NO_POSITION){
+//                onClickListener.onClick(product)
+//            }
+//
+//        }
         holder.bind(product)
     }
 
@@ -29,9 +36,13 @@ class ProductAdapter : ListAdapter<Product, ProductViewHolder>(this) {
         override fun areContentsTheSame(
             oldItem: Product, newItem: Product
         ): Boolean {
-            //Сравнить данные которые будут отображаться
+            //TODO Сравнить данные которые будут отображаться
             return oldItem == newItem
         }
+    }
+
+    class OnClickListener(val clickListener: (product:Product) -> Unit){
+        fun onClick(product: Product) = clickListener(product)
     }
 }
 
@@ -51,3 +62,5 @@ class ProductViewHolder(private val binding: ProductItemBinding) :
         }
     }
 }
+
+

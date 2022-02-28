@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs'
+    id 'org.jetbrains.kotlin.android.extensions'
 }
 
 android {
@@ -51,6 +53,7 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$version_lifecycle"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$version_lifecycle"
+    implementation 'com.google.android.gms:play-services-fido:18.1.0'
 
     //Room
     def room_version = "2.4.1"
@@ -77,4 +80,7 @@ dependencies {
     def version_navigation = '1.0.0'
     implementation "android.arch.navigation:navigation-fragment-ktx:$version_navigation"
     implementation "android.arch.navigation:navigation-ui-ktx:$version_navigation"
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$version_glide"
 }

@@ -9,11 +9,14 @@
         android:id="@+id/registrationFragment"
         android:name="com.kristina.onlineshopapp.ui.registration.RegistrationFragment"
         android:label="fragment_registration"
-        tools:layout="@layout/fragment_registration" >
+        tools:layout="@layout/fragment_registration">
         <action
             android:id="@+id/action_registrationFragment_to_profileFragment"
             app:destination="@id/profileFragment"
             app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_registrationFragment_to_productListFragment"
+            app:destination="@id/productListFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -23,7 +26,21 @@
     <fragment
         android:id="@+id/productListFragment"
         android:name="com.kristina.onlineshopapp.ui.product.list.ProductListFragment"
-        android:label="product_list_fragment"
-        tools:layout="@layout/product_list_fragment" />
+        android:label="Catalog"
+        tools:layout="@layout/product_list_fragment">
+        <action
+            android:id="@+id/action_productListFragment_to_productInfoFragment"
+            app:destination="@id/productInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.kristina.onlineshopapp.ui.about.AboutFragment"
+        android:label="About programmer"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/productInfoFragment"
+        android:name="com.kristina.onlineshopapp.ui.product.productInfo.ProductInfoFragment"
+        android:label="ProductInfoFragment"
+        tools:layout="@layout/product_info_fragment"/>
 
 </navigation>

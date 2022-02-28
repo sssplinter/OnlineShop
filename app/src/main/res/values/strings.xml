@@ -6,4 +6,10 @@
     <string name="email">Email</string>
     <string name="register">REGISTER</string>
     <string name="first_name">First name</string>
+    <string name="profile">Profile</string>
+    <string name="about">About</string>
+
+    <string name="about_text">Group: 951006\n\nStudent: Sementsova Kristina\n\nLab2: Online Shop</string>
+    <string name="about_programmer_title">ABOUT PROGRAMMER</string>
+
 </resources>

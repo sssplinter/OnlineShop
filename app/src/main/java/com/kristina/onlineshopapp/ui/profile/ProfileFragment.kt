@@ -5,12 +5,13 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
+import com.kristina.onlineshopapp.R
 import com.kristina.onlineshopapp.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
@@ -26,8 +27,10 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = FragmentProfileBinding.inflate(inflater, container, false)
 
+
+        binding = FragmentProfileBinding.inflate(inflater, container, false)
+        setHasOptionsMenu(true)
         viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
 
         return binding.root
@@ -49,4 +52,17 @@ class ProfileFragment : Fragment() {
             binding.avatarImg.setImageURI(imageUri)
         }
     }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater?.inflate(R.menu.overflow_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return NavigationUI.onNavDestinationSelected(
+            item!!,
+            requireView().findNavController()
+        )
+    }
+
 }
