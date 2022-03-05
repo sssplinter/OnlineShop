@@ -22,7 +22,7 @@ class ProductPageFragment : Fragment() {
         )
 
         setHasOptionsMenu(false)
-        
+
         return binding.root
     }
 
