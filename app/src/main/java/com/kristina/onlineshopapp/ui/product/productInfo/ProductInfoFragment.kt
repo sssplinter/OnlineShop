@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.kristina.onlineshopapp.R
 import com.kristina.onlineshopapp.databinding.ProductInfoFragmentBinding
 import com.kristina.onlineshopapp.domain.model.Product
@@ -35,6 +36,12 @@ class ProductInfoFragment : Fragment() {
         viewModel = ViewModelProvider(this, viewModelFactory).get(ProductInfoViewModel::class.java)
 
         binding.viewModel = viewModel
+
+        binding.pageBtn.setOnClickListener {
+            Navigation.findNavController(it).navigate(
+                R.id.action_productInfoFragment_to_productPageFragment
+            )
+        }
 
         return binding.root
     }

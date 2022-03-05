@@ -24,7 +24,8 @@
                 android:layout_width="300dp"
                 android:layout_height="400dp"
                 android:scaleType="centerCrop"
-                app:imageUrl = "@{viewModel.selectedProduct.image}"
+                android:visibility="visible"
+                app:imageUrl="@{viewModel.selectedProduct.image}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -35,9 +36,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:text="@{viewModel.selectedProduct.title}"
                 android:textColor="#de000000"
                 android:textSize="39sp"
-                android:text="@{viewModel.selectedProduct.title}"
+                android:visibility="visible"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/main_photo_image"
                 tools:text="Calvin Klein" />
@@ -47,12 +49,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:text="@{String.valueOf(viewModel.selectedProduct.price)}"
                 android:textColor="#de000000"
                 android:textSize="20sp"
-                android:text="@{String.valueOf(viewModel.selectedProduct.price)}"
+                android:visibility="visible"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/property_type_text"
                 tools:text="$10,000" />
+
+            <Button
+                android:id="@+id/page_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin = "10dp"
+                android:text="@string/redirect_to_source"
+                app:layout_constraintTop_toBottomOf="@id/price_value_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:layout_editor_absoluteY="600dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
