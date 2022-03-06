@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.kristina.onlineshopapp.ui.product.productInfo.ProductInfoViewModel" />
@@ -93,10 +94,10 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="50dp"
                 android:text="@string/redirect_to_source"
-                app:layout_constraintTop_toBottomOf="@id/description"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/description"
                 tools:layout_editor_absoluteY="600dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

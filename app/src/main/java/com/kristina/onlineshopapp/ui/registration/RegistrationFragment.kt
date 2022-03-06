@@ -11,12 +11,17 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.bundleOf
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import com.kristina.onlineshopapp.R
 import kotlin.properties.Delegates
 
 const val MODE_KEY = "NightMode"
+const val FIRST_NAME_KEY = "FirstName"
+const val LAST_NAME_KEY = "LastName"
+const val EMAIL_KEY = "Email"
+const val AVATAR_KEY = "Avatar"
 
 class RegistrationFragment : Fragment() {
 
@@ -63,6 +68,12 @@ class RegistrationFragment : Fragment() {
 
             //todo uncomment
 //            if (firstName.text.isNotEmpty() && lastName.text.isNotEmpty() && email.text.isNotEmpty()) {
+
+//            sharedPrefsEdit.putString(FIRST_NAME_KEY, firstName.text.toString())
+//            sharedPrefsEdit.putString(LAST_NAME_KEY, lastName.text.toString())
+//            sharedPrefsEdit.putString(EMAIL_KEY, email.text.toString())
+//            sharedPrefsEdit.apply()
+
 //                findNavController(it).navigate(
 //                    R.id.action_registrationFragment_to_profileFragment
 //                )
@@ -74,8 +85,14 @@ class RegistrationFragment : Fragment() {
 //                ).show()
 //            }
 
+            // TODO remove
+            sharedPrefsEdit.putString(FIRST_NAME_KEY, firstName.text.toString())
+            sharedPrefsEdit.putString(LAST_NAME_KEY, lastName.text.toString())
+            sharedPrefsEdit.putString(EMAIL_KEY, email.text.toString())
+            sharedPrefsEdit.apply()
+
             findNavController(it).navigate(
-                R.id.action_registrationFragment_to_productListFragment
+                R.id.action_registrationFragment_to_productListFragment//, bundleOf(FIRST_NAME_KEY to firstName, LAST_NAME_KEY to lastName, EMAIL_KEY to email)
             )
         }
 

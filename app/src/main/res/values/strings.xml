@@ -13,5 +13,6 @@
     <string name="about_programmer_title">ABOUT PROGRAMMER</string>
     <string name="favorites">Favorites</string>
     <string name="redirect_to_source">Look at the source</string>
+    <string name="select_avatar">Select an avatar</string>
 
 </resources>

@@ -17,7 +17,7 @@ import com.kristina.onlineshopapp.databinding.FragmentProfileBinding
 class ProfileFragment : Fragment() {
 
     lateinit var binding: FragmentProfileBinding
-    private lateinit var viewModel: ViewModel
+    private lateinit var viewModel: ProfileViewModel
 
     private val pickImage = 100
     private var imageUri: Uri? = null
@@ -26,12 +26,13 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
+        setHasOptionsMenu(true)
 
         binding = FragmentProfileBinding.inflate(inflater, container, false)
-        setHasOptionsMenu(true)
+
         viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
+
+        binding.viewModel = viewModel
 
         return binding.root
     }
@@ -43,12 +44,14 @@ class ProfileFragment : Fragment() {
             val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             startActivityForResult(gallery, pickImage)
         }
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK && requestCode == pickImage) {
             imageUri = data?.data
+            viewModel.setAvatarUri(imageUri.toString())
             binding.avatarImg.setImageURI(imageUri)
         }
     }
