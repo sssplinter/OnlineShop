@@ -2,7 +2,6 @@ package com.kristina.onlineshopapp.ui.product.list
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +13,7 @@ import com.kristina.onlineshopapp.R
 import com.kristina.onlineshopapp.databinding.ProductListFragmentBinding
 import com.kristina.onlineshopapp.domain.model.Product
 
-class ProductListFragment : Fragment(), ProductAdapter.OnClick {
+class ProductListFragment : Fragment(), ProductAdapter.OnRececlerViewItemClick {
 
     private var viewModel: ProductListViewModel? = null
 
@@ -48,13 +47,13 @@ class ProductListFragment : Fragment(), ProductAdapter.OnClick {
         viewModel = null
     }
 
-    override fun sendData(product: Product) {
+    override fun sendProductToFragment(product: Product) {
         findNavController().navigate(
             R.id.action_productListFragment_to_productInfoFragment, bundleOf("product" to product)
         )
     }
 
-    override fun setFavorite(product: Product) {
+    override fun setProductFavoriteStatus(product: Product) {
         viewModel?.setFavorite(product)
     }
 

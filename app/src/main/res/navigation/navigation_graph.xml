@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_registrationFragment_to_productListFragment"
             app:destination="@id/productListFragment" />
+        <action
+            android:id="@+id/action_registrationFragment_to_favoritesListFragment"
+            app:destination="@id/favoritesListFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -50,5 +53,13 @@
         android:id="@+id/productPageFragment"
         android:name="com.kristina.onlineshopapp.ui.product.webPage.ProductPageFragment"
         android:label="ProductPageFragment" />
+    <fragment
+        android:id="@+id/favoritesListFragment"
+        android:name="com.kristina.onlineshopapp.ui.favorites.FavoritesListFragment"
+        android:label="FavoritesListFragment" >
+        <action
+            android:id="@+id/action_favoritesListFragment_to_productInfoFragment"
+            app:destination="@id/productInfoFragment" />
+    </fragment>
 
 </navigation>

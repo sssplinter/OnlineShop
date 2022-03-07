@@ -1,6 +1,5 @@
 package com.kristina.onlineshopapp.ui.product.list
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ToggleButton
@@ -11,7 +10,7 @@ import com.kristina.onlineshopapp.R
 import com.kristina.onlineshopapp.databinding.ProductItemBinding
 import com.kristina.onlineshopapp.domain.model.Product
 
-class ProductAdapter (private val onClick: OnClick): ListAdapter<Product, ProductViewHolder>(this) {
+class ProductAdapter(private val onRececlerViewItemClick: OnRececlerViewItemClick) : ListAdapter<Product, ProductViewHolder>(this) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         return ProductViewHolder.from(parent)
@@ -19,16 +18,15 @@ class ProductAdapter (private val onClick: OnClick): ListAdapter<Product, Produc
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val product = getItem(position)
-        holder.itemView.setOnClickListener{
-//            val position = holder.bindingAdapterPosition
-            if(position != RecyclerView.NO_POSITION){
-                onClick.sendData(product)
+        holder.itemView.setOnClickListener {
+            if (position != RecyclerView.NO_POSITION) {
+                onRececlerViewItemClick.sendProductToFragment(product)
             }
 
         }
-        holder.itemView.findViewById<ToggleButton>(R.id.toggleButton).setOnClickListener{
-            if(position != RecyclerView.NO_POSITION){
-                onClick.setFavorite(product)
+        holder.itemView.findViewById<ToggleButton>(R.id.favorite_btn).setOnClickListener {
+            if (position != RecyclerView.NO_POSITION) {
+                onRececlerViewItemClick.setProductFavoriteStatus(product)
             }
         }
         holder.bind(product)
@@ -45,13 +43,15 @@ class ProductAdapter (private val onClick: OnClick): ListAdapter<Product, Produc
             oldItem: Product, newItem: Product
         ): Boolean {
             //TODO Сравнить данные которые будут отображаться
-            return oldItem == newItem
+            return ((oldItem.title == newItem.title)
+                    && (oldItem.favourite == newItem.favourite)
+                    && (oldItem.price == newItem.price))
         }
     }
 
-    interface OnClick{
-        fun sendData(product: Product)
-        fun setFavorite(product: Product)
+    interface OnRececlerViewItemClick {
+        fun sendProductToFragment(product: Product)
+        fun setProductFavoriteStatus(product: Product)
     }
 
 }

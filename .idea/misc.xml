@@ -14,7 +14,10 @@
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/drawable/ic_star_off.xml" value="0.12314814814814815" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/drawable/ic_star_on.xml" value="0.12314814814814815" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/layout/activity_main.xml" value="0.128" />
+        <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/layout/favorite_item.xml" value="0.536" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/layout/fragment_about.xml" value="0.11018518518518519" />
+        <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/layout/fragment_favorite_list.xml" value="0.22010869565217392" />
+        <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/layout/fragment_favorites_list.xml" value="0.22010869565217392" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/layout/fragment_product_page.xml" value="0.1" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/layout/fragment_profile.xml" value="0.1328125" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/layout/fragment_registration.xml" value="0.2" />

@@ -25,6 +25,9 @@ interface ProductDao {
     @Query("SELECT * FROM products_table")
     fun getProducts() : LiveData<List<ProductEntity>>
 
+    @Query("SELECT * FROM products_table WHERE favourite = 1")
+    fun getFavorites() : LiveData<List<ProductEntity>>
+
     @Query("UPDATE products_table SET favourite = :favorite WHERE id = :productId")
     fun updateFavoriteStatus(productId: Long, favorite: Boolean)
 }

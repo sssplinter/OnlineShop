@@ -43,6 +43,10 @@ class ProductInfoFragment : Fragment() {
             )
         }
 
+        binding.favoriteBtn.setOnClickListener{
+            viewModel.setFavorite()
+        }
+
         return binding.root
     }
 

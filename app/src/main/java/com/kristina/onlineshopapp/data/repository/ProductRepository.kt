@@ -1,6 +1,7 @@
 package com.kristina.onlineshopapp.data.repository
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.kristina.onlineshopapp.data.db.dao.ProductDao
 import com.kristina.onlineshopapp.data.db.entity.ProductEntity
@@ -18,6 +19,12 @@ class ProductRepository(private val productDao: ProductDao) {
     val products: LiveData<List<Product>>
         get() = Transformations.map(_products) { productEntities ->
             // трасформируем сущности из бд в представление для UI
+            productEntities.map(ProductEntity::toDomain)
+        }
+
+    private val _favorites = productDao.getFavorites()
+    val favorites : LiveData<List<Product>>
+        get() = Transformations.map(_favorites) { productEntities ->
             productEntities.map(ProductEntity::toDomain)
         }
 
@@ -39,7 +46,7 @@ class ProductRepository(private val productDao: ProductDao) {
             val products = ShopApi.retrofitService.getProducts().map(ProductDto::toDomain)
             updateDatabase(products)
         } catch (exception: Exception) {
-           // todo msg no connection Toast.makeText(, text, duration).show()
+           // TODO msg no connection Toast.makeText(, text, duration).show()
         }
     }
 
@@ -59,4 +66,5 @@ class ProductRepository(private val productDao: ProductDao) {
 
         }
     }
+
 }

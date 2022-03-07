@@ -97,15 +97,23 @@ class RegistrationFragment : Fragment() {
         }
 
         view.findViewById<Button>(R.id.mode_button).setOnClickListener {
-            if (isNightMode) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                sharedPrefsEdit.putBoolean(MODE_KEY, false)
-                sharedPrefsEdit.apply()
-            } else {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                sharedPrefsEdit.putBoolean(MODE_KEY, true)
-                sharedPrefsEdit.apply()
-            }
+
+
+            //TODO remove from here to catalog fragment
+            findNavController(it).navigate(
+                R.id.action_registrationFragment_to_favoritesListFragment//, bundleOf(FIRST_NAME_KEY to firstName, LAST_NAME_KEY to lastName, EMAIL_KEY to email)
+            )
+
+            // TODO
+//            if (isNightMode) {
+//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+//                sharedPrefsEdit.putBoolean(MODE_KEY, false)
+//                sharedPrefsEdit.apply()
+//            } else {
+//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+//                sharedPrefsEdit.putBoolean(MODE_KEY, true)
+//                sharedPrefsEdit.apply()
+//            }
         }
     }
 
