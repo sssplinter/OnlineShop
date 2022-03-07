@@ -27,8 +27,10 @@ class ProductRepository(private val productDao: ProductDao) {
         }
     }
 
-    suspend fun updateFavoriteStatus(){
-        productDao.
+    suspend fun updateFavoriteStatus(product: Product){
+        withContext(Dispatchers.IO){
+            productDao.updateProductStatus(product.toEntity())
+        }
     }
 
     private suspend fun refreshProducts() {
