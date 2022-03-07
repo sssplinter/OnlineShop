@@ -13,7 +13,7 @@ import com.kristina.onlineshopapp.R
 import com.kristina.onlineshopapp.databinding.ProductListFragmentBinding
 import com.kristina.onlineshopapp.domain.model.Product
 
-class ProductListFragment : Fragment(), ProductAdapter.OnRececlerViewItemClick {
+class ProductListFragment : Fragment(), ProductAdapter.ProductRececlerViewItemInterface {
 
     private var viewModel: ProductListViewModel? = null
 

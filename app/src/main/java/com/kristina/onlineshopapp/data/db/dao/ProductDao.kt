@@ -17,7 +17,7 @@ interface ProductDao {
     suspend fun insertProducts(products: List<ProductEntity>)
 
     @Update
-    suspend fun updateProductStatus(product: ProductEntity)
+    suspend fun updateProduct(product: ProductEntity)
 
     @Query("SELECT * FROM products_table WHERE id=:productId")
     suspend fun getProductById(productId: Long): ProductEntity?

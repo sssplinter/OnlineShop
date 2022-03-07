@@ -21,14 +21,14 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
             app:imageUrl="@{product.image}"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/comment"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
+            android:layout_width="192dp"
+            android:layout_height="20dp"
             android:layout_marginTop="16dp"
             android:text="@{product.title}"
             app:layout_constraintBottom_toTopOf="@id/price"
@@ -49,6 +49,7 @@
             android:id="@+id/delete_from_favorites_btn"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:layout_marginTop="8dp"
             android:background="@color/white"
             app:icon="@android:drawable/ic_menu_delete"
             app:iconGravity="top"
@@ -56,6 +57,34 @@
             app:layout_constraintStart_toEndOf="@id/title"
             app:layout_constraintTop_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/add_comment_btn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@color/white"
+            app:icon="?attr/actionModePasteDrawable"
+            app:iconGravity="top"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.485"
+            app:layout_constraintStart_toEndOf="@+id/comment"
+            app:layout_constraintTop_toBottomOf="@id/delete_from_favorites_btn"
+            app:layout_constraintVertical_bias="0.619" />
+
+        <EditText
+            android:id="@+id/comment"
+            android:layout_width="312dp"
+            android:imeOptions="actionDone"
+            android:layout_height="48dp"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/add_note"
+            android:text="@{product.comment}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.161"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/product_img" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

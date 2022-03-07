@@ -1,15 +1,9 @@
 package com.kristina.onlineshopapp.ui.product.productInfo
 
 import android.app.Application
-import android.widget.ImageView
-import androidx.core.net.toUri
-import androidx.databinding.BindingAdapter
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
-import com.kristina.onlineshopapp.R
 import com.kristina.onlineshopapp.data.db.ShopDatabase
 import com.kristina.onlineshopapp.data.repository.ProductRepository
 import com.kristina.onlineshopapp.domain.model.Product
@@ -45,7 +39,7 @@ class ProductInfoViewModel(product: Product, app: Application) : AndroidViewMode
             var product = _selectedProduct.value
             product?.favourite = !product?.favourite!!
             _selectedProduct.value = product
-            productRepository.updateFavoriteStatus(product)
+            productRepository.updateProduct(product)
         }
     }
 

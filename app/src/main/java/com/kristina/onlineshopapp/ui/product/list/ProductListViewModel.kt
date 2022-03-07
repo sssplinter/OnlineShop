@@ -36,7 +36,7 @@ class ProductListViewModel(context: Context) : ViewModel() {
     fun setFavorite(product: Product) {
         uiScope.launch {
             product.favourite = !product.favourite
-            productRepository.updateFavoriteStatus(product)
+            productRepository.updateProduct(product)
         }
     }
 }

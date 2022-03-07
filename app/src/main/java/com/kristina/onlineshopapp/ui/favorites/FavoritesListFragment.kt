@@ -14,7 +14,7 @@ import com.kristina.onlineshopapp.databinding.FragmentFavoritesListBinding
 import com.kristina.onlineshopapp.domain.model.Product
 import com.kristina.onlineshopapp.ui.product.list.ProductAdapter
 
-class FavoritesListFragment : Fragment(), ProductAdapter.OnRececlerViewItemClick {
+class FavoritesListFragment : Fragment(), FavoritesAdapter.FavoriteProductRecyclerViewItemInterface {
 
     lateinit var binding: FragmentFavoritesListBinding
     lateinit var viewModel: FavoritesViewModel
@@ -40,6 +40,10 @@ class FavoritesListFragment : Fragment(), ProductAdapter.OnRececlerViewItemClick
         }
 
         return binding.root
+    }
+
+    override fun addComment(product: Product, comment: String) {
+        viewModel?.addComment(product, comment)
     }
 
     override fun sendProductToFragment(product: Product) {

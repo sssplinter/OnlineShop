@@ -10,7 +10,7 @@ import com.kristina.onlineshopapp.R
 import com.kristina.onlineshopapp.databinding.ProductItemBinding
 import com.kristina.onlineshopapp.domain.model.Product
 
-class ProductAdapter(private val onRececlerViewItemClick: OnRececlerViewItemClick) : ListAdapter<Product, ProductViewHolder>(this) {
+class ProductAdapter(private val productRececlerViewItemInterface: ProductRececlerViewItemInterface) : ListAdapter<Product, ProductViewHolder>(this) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         return ProductViewHolder.from(parent)
@@ -20,13 +20,13 @@ class ProductAdapter(private val onRececlerViewItemClick: OnRececlerViewItemClic
         val product = getItem(position)
         holder.itemView.setOnClickListener {
             if (position != RecyclerView.NO_POSITION) {
-                onRececlerViewItemClick.sendProductToFragment(product)
+                productRececlerViewItemInterface.sendProductToFragment(product)
             }
 
         }
         holder.itemView.findViewById<ToggleButton>(R.id.favorite_btn).setOnClickListener {
             if (position != RecyclerView.NO_POSITION) {
-                onRececlerViewItemClick.setProductFavoriteStatus(product)
+                productRececlerViewItemInterface.setProductFavoriteStatus(product)
             }
         }
         holder.bind(product)
@@ -49,7 +49,7 @@ class ProductAdapter(private val onRececlerViewItemClick: OnRececlerViewItemClic
         }
     }
 
-    interface OnRececlerViewItemClick {
+    interface ProductRececlerViewItemInterface {
         fun sendProductToFragment(product: Product)
         fun setProductFavoriteStatus(product: Product)
     }

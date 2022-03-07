@@ -13,5 +13,5 @@ data class Product(
     val image: String,
     val description: String,
     var favourite: Boolean = false,
-    val comment: String = ""
+    var comment: String = ""
 ) : Parcelable
