@@ -83,4 +83,10 @@ dependencies {
 
     // Glide
     implementation "com.github.bumptech.glide:glide:$version_glide"
+
+    // Google Map
+    implementation 'com.google.android.gms:play-services-maps:16.0.0'
+
+    // Location
+    implementation 'com.google.android.gms:play-services-location:15.0.1'
 }

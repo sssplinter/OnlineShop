@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="50dp">
+            android:padding="10dp">
 
             <TextView
                 android:id="@+id/textView"
@@ -30,8 +30,8 @@
 
             <ImageView
                 android:id="@+id/avatar_img"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="20dp"
                 android:contentDescription="Profile image"
@@ -44,6 +44,7 @@
                 android:hint="@string/first_name"
                 android:minHeight="48dp"
                 android:text="@{viewModel.firstName}"
+                android:textAlignment="center"
                 android:textColor="#3E3838" />
 
             <TextView
@@ -53,6 +54,7 @@
                 android:hint="@string/last_name"
                 android:minHeight="48dp"
                 android:text="@{viewModel.lastName}"
+                android:textAlignment="center"
                 android:textColor="#3E3838" />
 
             <TextView
@@ -62,7 +64,14 @@
                 android:hint="@string/email"
                 android:minHeight="48dp"
                 android:text="@{viewModel.email}"
+                android:textAlignment="center"
                 android:textColor="#3E3838" />
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/map"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+
 
         </LinearLayout>
 
