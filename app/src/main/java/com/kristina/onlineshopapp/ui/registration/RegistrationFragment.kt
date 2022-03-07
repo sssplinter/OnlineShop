@@ -66,44 +66,26 @@ class RegistrationFragment : Fragment() {
 
         view.findViewById<Button>(R.id.register_button).setOnClickListener {
 
-            //todo uncomment
-//            if (firstName.text.isNotEmpty() && lastName.text.isNotEmpty() && email.text.isNotEmpty()) {
+            if (firstName.text.isNotEmpty() && lastName.text.isNotEmpty() && email.text.isNotEmpty()) {
 
-//            sharedPrefsEdit.putString(FIRST_NAME_KEY, firstName.text.toString())
-//            sharedPrefsEdit.putString(LAST_NAME_KEY, lastName.text.toString())
-//            sharedPrefsEdit.putString(EMAIL_KEY, email.text.toString())
-//            sharedPrefsEdit.apply()
-
-//                findNavController(it).navigate(
-//                    R.id.action_registrationFragment_to_profileFragment
-//                )
-//            } else {
-//                Toast.makeText(
-//                    context,
-//                    "All fields must be filled in to register.",
-//                    Toast.LENGTH_LONG
-//                ).show()
-//            }
-
-            // TODO remove
             sharedPrefsEdit.putString(FIRST_NAME_KEY, firstName.text.toString())
             sharedPrefsEdit.putString(LAST_NAME_KEY, lastName.text.toString())
             sharedPrefsEdit.putString(EMAIL_KEY, email.text.toString())
             sharedPrefsEdit.apply()
 
-            findNavController(it).navigate(
-                R.id.action_registrationFragment_to_productListFragment//, bundleOf(FIRST_NAME_KEY to firstName, LAST_NAME_KEY to lastName, EMAIL_KEY to email)
-            )
+                findNavController(it).navigate(
+                    R.id.action_registrationFragment_to_profileFragment
+                )
+            } else {
+                Toast.makeText(
+                    context,
+                    "All fields must be filled in to register.",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
         }
 
         view.findViewById<Button>(R.id.mode_button).setOnClickListener {
-
-
-            //TODO remove from here to catalog fragment
-            findNavController(it).navigate(
-                R.id.action_registrationFragment_to_favoritesListFragment//, bundleOf(FIRST_NAME_KEY to firstName, LAST_NAME_KEY to lastName, EMAIL_KEY to email)
-            )
-
             // TODO
 //            if (isNightMode) {
 //                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)

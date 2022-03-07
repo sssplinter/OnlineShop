@@ -11,8 +11,10 @@
 
     <string name="about_text">Group: 951006\n\nStudent: Sementsova Kristina\n\nLab2: Online Shop</string>
     <string name="about_programmer_title">ABOUT PROGRAMMER</string>
-    <string name="favorites">Favorites</string>
+    <string name="favorites_page">Favorites</string>
     <string name="redirect_to_source">Look at the source</string>
     <string name="select_avatar">Select an avatar</string>
+    <string name="main_page">Main</string>
+    <string name="search_page">Search</string>
 
 </resources>

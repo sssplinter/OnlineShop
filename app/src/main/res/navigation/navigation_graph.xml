@@ -38,12 +38,12 @@
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.kristina.onlineshopapp.ui.about.AboutFragment"
-        android:label="About programmer"
+        android:label="About Programmer"
         tools:layout="@layout/fragment_about" />
     <fragment
         android:id="@+id/productInfoFragment"
         android:name="com.kristina.onlineshopapp.ui.product.productInfo.ProductInfoFragment"
-        android:label="Details"
+        android:label="Product Details"
         tools:layout="@layout/product_info_fragment">
         <action
             android:id="@+id/action_productInfoFragment_to_productPageFragment"
@@ -52,11 +52,11 @@
     <fragment
         android:id="@+id/productPageFragment"
         android:name="com.kristina.onlineshopapp.ui.product.webPage.ProductPageFragment"
-        android:label="ProductPageFragment" />
+        android:label="Product Page" />
     <fragment
         android:id="@+id/favoritesListFragment"
         android:name="com.kristina.onlineshopapp.ui.favorites.FavoritesListFragment"
-        android:label="FavoritesListFragment" >
+        android:label="Favorites" >
         <action
             android:id="@+id/action_favoritesListFragment_to_productInfoFragment"
             app:destination="@id/productInfoFragment" />
