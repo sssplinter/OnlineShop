@@ -1,7 +1,5 @@
 package com.kristina.onlineshopapp.data.repository
 
-import android.app.Application
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import com.kristina.onlineshopapp.data.db.dao.ProductDao
@@ -27,6 +25,10 @@ class ProductRepository(private val productDao: ProductDao) {
         withContext(Dispatchers.IO) {
             refreshProducts()
         }
+    }
+
+    suspend fun updateFavoriteStatus(){
+        productDao.
     }
 
     private suspend fun refreshProducts() {

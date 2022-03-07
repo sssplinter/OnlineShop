@@ -3,9 +3,11 @@ package com.kristina.onlineshopapp.ui.product.list
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ToggleButton
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.kristina.onlineshopapp.R
 import com.kristina.onlineshopapp.databinding.ProductItemBinding
 import com.kristina.onlineshopapp.domain.model.Product
 
@@ -18,12 +20,16 @@ class ProductAdapter (private val onClick: OnClick): ListAdapter<Product, Produc
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val product = getItem(position)
         holder.itemView.setOnClickListener{
-            val position = holder.bindingAdapterPosition
+//            val position = holder.bindingAdapterPosition
             if(position != RecyclerView.NO_POSITION){
                 onClick.sendData(product)
-                Log.i("Click", "selected $position item")
             }
 
+        }
+        holder.itemView.findViewById<ToggleButton>(R.id.toggleButton).setOnClickListener{
+            if(position != RecyclerView.NO_POSITION){
+                onClick.setFavorite(product)
+            }
         }
         holder.bind(product)
     }
@@ -45,7 +51,9 @@ class ProductAdapter (private val onClick: OnClick): ListAdapter<Product, Produc
 
     interface OnClick{
         fun sendData(product: Product)
+        fun setFavorite(product: Product)
     }
+
 }
 
 class ProductViewHolder(private val binding: ProductItemBinding) :

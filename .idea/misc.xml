@@ -6,6 +6,13 @@
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/drawable-v24/ic_broken_image.xml" value="0.1361111111111111" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/drawable-v24/loading_img.xml" value="0.1361111111111111" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/drawable/android.xml" value="0.24351851851851852" />
+        <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/drawable/button.xml" value="0.1" />
+        <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/drawable/button_on.xml" value="0.1" />
+        <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/drawable/button_selector.xml" value="0.25092592592592594" />
+        <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/drawable/ic_heart.xml" value="0.12314814814814815" />
+        <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/drawable/ic_heart_off.xml" value="0.12314814814814815" />
+        <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/drawable/ic_star_off.xml" value="0.12314814814814815" />
+        <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/drawable/ic_star_on.xml" value="0.12314814814814815" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/layout/activity_main.xml" value="0.128" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/layout/fragment_about.xml" value="0.11018518518518519" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/layout/fragment_product_page.xml" value="0.1" />
@@ -13,7 +20,7 @@
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/layout/fragment_registration.xml" value="0.2" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/layout/nav_header.xml" value="0.13072916666666667" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/layout/product_info_fragment.xml" value="0.264" />
-        <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/layout/product_item.xml" value="0.16304347826086957" />
+        <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/layout/product_item.xml" value="0.1" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/layout/product_list_fragment.xml" value="0.264" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/menu/bottom_menu.xml" value="0.1" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/menu/navdrawer_menu.xml" value="0.264" />

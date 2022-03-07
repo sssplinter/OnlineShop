@@ -33,15 +33,6 @@ class ProductListFragment : Fragment(), ProductAdapter.OnClick {
         val adapter = ProductAdapter(this)
         binding.productList.adapter = adapter
 
-        viewModel!!.navigateToSelectedProduct.observe(viewLifecycleOwner) {
-            if (null != it) {
-//                this.findNavController().navigate(
-//                   // ProductListFragmentDirections.actionProductListFragmentToProductInfoFragment
-//                )actionProductListFragmentToProductInfoFragment
-                viewModel?.displayProductInfoComplete()
-            }
-        }
-
 
         viewModel?.products?.observe(viewLifecycleOwner) {
             adapter.submitList(it)
@@ -61,6 +52,10 @@ class ProductListFragment : Fragment(), ProductAdapter.OnClick {
         findNavController().navigate(
             R.id.action_productListFragment_to_productInfoFragment, bundleOf("product" to product)
         )
-        Log.i("Click", "Click from fragment")
     }
+
+    override fun setFavorite(product: Product) {
+        viewModel?.setFavorite(product)
+    }
+
 }

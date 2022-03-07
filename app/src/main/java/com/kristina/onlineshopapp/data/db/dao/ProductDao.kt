@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 import com.kristina.onlineshopapp.data.db.entity.ProductEntity
 
 @Dao
@@ -14,6 +15,9 @@ interface ProductDao {
 
     @Insert
     suspend fun insertProducts(products: List<ProductEntity>)
+
+    @Update
+    suspend fun updateProductStatus(product: ProductEntity)
 
     @Query("SELECT * FROM products_table WHERE id=:productId")
     suspend fun getProductById(productId: Long): ProductEntity?
