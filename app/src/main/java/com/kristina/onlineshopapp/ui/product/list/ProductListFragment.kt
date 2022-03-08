@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
-import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
@@ -46,6 +45,9 @@ class ProductListFragment : Fragment(), ProductAdapter.ProductRececlerViewItemIn
             }
         })
 
+        binding.slider.addOnChangeListener { slider, value, fromUser ->
+            viewModel?.setPriceBound(value)
+        }
 
         viewModel?.products?.observe(viewLifecycleOwner) {
             adapter.submitList(it)

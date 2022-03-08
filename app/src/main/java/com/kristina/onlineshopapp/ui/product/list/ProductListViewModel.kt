@@ -5,9 +5,6 @@ import androidx.lifecycle.*
 import com.kristina.onlineshopapp.data.db.ShopDatabase
 import com.kristina.onlineshopapp.data.repository.ProductRepository
 import com.kristina.onlineshopapp.domain.model.Product
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 class ProductListViewModel(context: Context) : ViewModel() {
@@ -19,22 +16,31 @@ class ProductListViewModel(context: Context) : ViewModel() {
 
     private val query = MutableLiveData<String>("")
 
-    val products = MediatorLiveData<List<Product>>().apply{
-        fun filter(products : List<Product>?, query: String?){
+    private val priceBound = MutableLiveData<Float>(1000.0F)
+
+    val products = MediatorLiveData<List<Product>>().apply {
+
+        fun filter(products: List<Product>?, query: String?, price: Float?) {
             if (products != null && query != null) {
                 val filteredProducts = products.filter { product ->
-                    product.title.startsWith(query, true)
+                    (product.title.startsWith(query, true)
+                            || product.category.startsWith(query, true))
+                            && product.price < price!!
                 }
                 value = filteredProducts
             }
         }
 
-        addSource(query){
-            filter(_products.value, it)
+        addSource(_products) {
+            filter(it, query.value, priceBound.value)
         }
 
-        addSource(_products){
-            filter(it, query.value)
+        addSource(query) {
+            filter(_products.value, it, priceBound.value)
+        }
+
+        addSource(priceBound) {
+            filter(_products.value, query.value, it)
         }
     }
 
@@ -54,6 +60,10 @@ class ProductListViewModel(context: Context) : ViewModel() {
 
     fun search(newQuery: String) {
         query.value = newQuery
+    }
+
+    fun setPriceBound(newPrice: Float) {
+        priceBound.value = newPrice
     }
 
 }
