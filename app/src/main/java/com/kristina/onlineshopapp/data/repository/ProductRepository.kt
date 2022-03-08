@@ -17,7 +17,6 @@ class ProductRepository(private val productDao: ProductDao) {
     private val _products = productDao.getProducts()
     val products: LiveData<List<Product>>
         get() = Transformations.map(_products) { productEntities ->
-            // трасформируем сущности из бд в представление для UI
             productEntities.map(ProductEntity::toDomain)
         }
 

@@ -1,8 +1,7 @@
 package com.kristina.onlineshopapp.ui.product.list
 
 import android.content.Context
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.kristina.onlineshopapp.data.db.ShopDatabase
 import com.kristina.onlineshopapp.data.repository.ProductRepository
 import com.kristina.onlineshopapp.domain.model.Product
@@ -13,19 +12,32 @@ import kotlinx.coroutines.launch
 
 class ProductListViewModel(context: Context) : ViewModel() {
 
-    private val viewModelJob = Job()
-    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
-
-
-    override fun onCleared() {
-        super.onCleared()
-        viewModelJob.cancel()
-    }
-
     private val productRepository =
         ProductRepository(ShopDatabase.getInstance(context).productDao)
 
-    val products = productRepository.products
+    private var _products = productRepository.products
+
+    private val query = MutableLiveData<String>("")
+
+    val products = MediatorLiveData<List<Product>>().apply{
+        fun filter(products : List<Product>?, query: String?){
+            if (products != null && query != null) {
+                val filteredProducts = products.filter { product ->
+                    product.title.startsWith(query, true)
+                }
+                value = filteredProducts
+            }
+        }
+
+        addSource(query){
+            filter(_products.value, it)
+        }
+
+        addSource(_products){
+            filter(it, query.value)
+        }
+    }
+
 
     fun fetchProducts() {
         viewModelScope.launch {
@@ -34,9 +46,14 @@ class ProductListViewModel(context: Context) : ViewModel() {
     }
 
     fun setFavorite(product: Product) {
-        uiScope.launch {
+        viewModelScope.launch {
             product.favourite = !product.favourite
             productRepository.updateProduct(product)
         }
     }
+
+    fun search(newQuery: String) {
+        query.value = newQuery
+    }
+
 }

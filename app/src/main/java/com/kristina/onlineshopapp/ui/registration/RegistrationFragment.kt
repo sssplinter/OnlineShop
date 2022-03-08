@@ -1,8 +1,8 @@
 package com.kristina.onlineshopapp.ui.registration
 
 import android.content.SharedPreferences
+import android.content.res.Configuration
 import android.os.Bundle
-import android.os.SharedMemory
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,24 +11,20 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.os.bundleOf
 import androidx.navigation.Navigation.findNavController
-import androidx.navigation.findNavController
 import com.kristina.onlineshopapp.R
-import kotlin.properties.Delegates
 
 const val MODE_KEY = "NightMode"
 const val FIRST_NAME_KEY = "FirstName"
 const val LAST_NAME_KEY = "LastName"
 const val EMAIL_KEY = "Email"
 const val AVATAR_KEY = "Avatar"
+const val APP_PREFS = "AppSettingPrefs"
 
 class RegistrationFragment : Fragment() {
 
     // todo databinding
     lateinit var appSettingPrefs: SharedPreferences
-    lateinit var sharedPrefsEdit: SharedPreferences.Editor
-    var isNightMode by Delegates.notNull<Boolean>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,21 +34,18 @@ class RegistrationFragment : Fragment() {
 
         setHasOptionsMenu(false)
 
-        appSettingPrefs = context?.getSharedPreferences("AppSettingPrefs", 0)!!
-        sharedPrefsEdit = appSettingPrefs.edit()
+        appSettingPrefs = context?.getSharedPreferences(APP_PREFS, 0)!!
 
+        val currentNightMode =
+            requireContext().resources.configuration.uiMode.and(Configuration.UI_MODE_NIGHT_MASK)
 
-        sharedPrefsEdit.putBoolean(MODE_KEY, false)
-        sharedPrefsEdit.apply()
+        val isNightMode = appSettingPrefs.getBoolean(MODE_KEY, false)
 
-        isNightMode = appSettingPrefs.getBoolean(MODE_KEY, false)
-
-        if (isNightMode) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-
-        }
+//        if (isNightMode && currentNightMode == Configuration.UI_MODE_NIGHT_NO) {
+//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+//        } else if (!isNightMode && currentNightMode == Configuration.UI_MODE_NIGHT_YES) {
+//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+//        }
 
         return inflater.inflate(R.layout.fragment_registration, container, false)
     }
@@ -64,14 +57,17 @@ class RegistrationFragment : Fragment() {
         val lastName = view.findViewById<EditText>(R.id.last_name)
         val email = view.findViewById<EditText>(R.id.email)
 
+
         view.findViewById<Button>(R.id.register_button).setOnClickListener {
 
             if (firstName.text.isNotEmpty() && lastName.text.isNotEmpty() && email.text.isNotEmpty()) {
 
-            sharedPrefsEdit.putString(FIRST_NAME_KEY, firstName.text.toString())
-            sharedPrefsEdit.putString(LAST_NAME_KEY, lastName.text.toString())
-            sharedPrefsEdit.putString(EMAIL_KEY, email.text.toString())
-            sharedPrefsEdit.apply()
+                requireContext().getSharedPreferences(APP_PREFS, 0).edit().apply {
+                    putString(FIRST_NAME_KEY, firstName.text.toString())
+                    putString(LAST_NAME_KEY, lastName.text.toString())
+                    putString(EMAIL_KEY, email.text.toString())
+                    apply()
+                }
 
                 findNavController(it).navigate(
                     R.id.action_registrationFragment_to_profileFragment
@@ -86,17 +82,20 @@ class RegistrationFragment : Fragment() {
         }
 
         view.findViewById<Button>(R.id.mode_button).setOnClickListener {
-            // TODO
-//            if (isNightMode) {
-//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-//                sharedPrefsEdit.putBoolean(MODE_KEY, false)
-//                sharedPrefsEdit.apply()
-//            } else {
-//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-//                sharedPrefsEdit.putBoolean(MODE_KEY, true)
-//                sharedPrefsEdit.apply()
-//            }
+            val currentNightMode =
+                it.context.resources.configuration.uiMode.and(Configuration.UI_MODE_NIGHT_MASK)
+
+            requireContext().getSharedPreferences(APP_PREFS, 0).edit().apply {
+                putBoolean(MODE_KEY, currentNightMode == Configuration.UI_MODE_NIGHT_NO)
+                apply()
+            }
+
+            if (currentNightMode == Configuration.UI_MODE_NIGHT_YES) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            }
         }
     }
-
 }
+

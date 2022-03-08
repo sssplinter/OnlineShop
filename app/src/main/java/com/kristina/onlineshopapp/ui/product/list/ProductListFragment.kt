@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
@@ -31,6 +33,18 @@ class ProductListFragment : Fragment(), ProductAdapter.ProductRececlerViewItemIn
 
         val adapter = ProductAdapter(this)
         binding.productList.adapter = adapter
+
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                viewModel?.search(query)
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                viewModel?.search(newText)
+                return false
+            }
+        })
 
 
         viewModel?.products?.observe(viewLifecycleOwner) {
