@@ -2,6 +2,7 @@ package com.kristina.onlineshopapp.ui.product.list
 
 import android.content.Context
 import androidx.lifecycle.*
+import com.kristina.onlineshopapp.currency.CurrencyParser
 import com.kristina.onlineshopapp.data.db.ShopDatabase
 import com.kristina.onlineshopapp.data.repository.ProductRepository
 import com.kristina.onlineshopapp.domain.model.Product
@@ -17,6 +18,10 @@ class ProductListViewModel(context: Context) : ViewModel() {
     private val query = MutableLiveData<String>("")
 
     private val priceBound = MutableLiveData<Float>(1000.0F)
+
+    private val currencyParser = CurrencyParser()
+
+    lateinit var data: HashMap<String, Pair<Double, Double>>
 
     val products = MediatorLiveData<List<Product>>().apply {
 
@@ -65,5 +70,20 @@ class ProductListViewModel(context: Context) : ViewModel() {
     fun setPriceBound(newPrice: Float) {
         priceBound.value = newPrice
     }
+
+//    fun test(){
+//        viewModelScope.launch {
+//            testShowCurrency()
+//            Log.i("Cur", data.toString())
+//        }
+//    }
+//
+//    private suspend fun testShowCurrency(){
+//
+//        withContext(Dispatchers.IO){
+//            currencyParser.update()
+//            data = currencyParser.data
+//        }
+//    }
 
 }

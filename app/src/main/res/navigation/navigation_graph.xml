@@ -61,5 +61,9 @@
             android:id="@+id/action_favoritesListFragment_to_productInfoFragment"
             app:destination="@id/productInfoFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/currencyConverterFragment"
+        android:name="com.kristina.onlineshopapp.ui.currency.CurrencyConverterFragment"
+        android:label="Currency Converter" />
 
 </navigation>

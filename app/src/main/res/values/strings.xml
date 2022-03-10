@@ -13,8 +13,16 @@
     <string name="favorites_page">Favorites</string>
     <string name="redirect_to_source">Look at the source</string>
     <string name="select_avatar">Select an avatar</string>
-    <string name="main_page">Main</string>
+    <string name="catalog_page">Catalog</string>
     <string name="search_page">Search</string>
     <string name="add_note">Add a note about product</string>
+    <string name="update">Update</string>
+    <string name="currency">Currency</string>
+    <string name="buy">Buy</string>
+    <string name="sell">Sell</string>
+    <string name="usd">USD</string>
+    <string name="euro">EUR</string>
+    <string name="rub">RUB</string>
+    <string name="converter">Converter</string>
 
 </resources>
