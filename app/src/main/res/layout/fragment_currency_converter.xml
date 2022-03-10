@@ -10,6 +10,16 @@
         android:paddingVertical="10dp"
         tools:context=".view.currency.CurrencyFragment">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/converter_title"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,6 +31,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/currency"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -30,6 +41,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/buy"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -39,6 +51,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/sell"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -55,6 +68,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/usd"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -65,7 +79,9 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="3.61"
-                android:textSize="18sp" />
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="italic" />
 
             <TextView
                 android:id="@+id/usd_sell"
@@ -74,7 +90,9 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="3.8"
-                android:textSize="18sp" />
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="italic" />
         </LinearLayout>
 
         <LinearLayout
@@ -89,6 +107,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/euro"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -99,7 +118,9 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="3.84"
-                android:textSize="18sp" />
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="italic" />
 
             <TextView
                 android:id="@+id/eur_sell"
@@ -108,7 +129,9 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="4.1"
-                android:textSize="18sp" />
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="italic" />
         </LinearLayout>
 
         <LinearLayout
@@ -123,6 +146,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/rub"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -133,7 +157,9 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="0.0175"
-                android:textSize="18sp" />
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="italic" />
 
             <TextView
                 android:id="@+id/rub_sell"
@@ -142,13 +168,20 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="0.028"
-                android:textSize="18sp" />
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="italic" />
         </LinearLayout>
 
         <Button
             android:id="@+id/update"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="32dp"
+            android:background="@color/purple_200"
+            android:padding="16dp"
+            android:textStyle="bold"
             android:text="@string/update" />
 
         <ProgressBar

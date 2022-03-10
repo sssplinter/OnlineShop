@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.SharedPreferences
 import android.net.Uri
 import android.util.Log
+import androidx.core.net.toUri
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -16,7 +17,6 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
 
     var appSettingPrefs: SharedPreferences =
         application.getSharedPreferences("AppSettingPrefs", 0)!!
-//    lateinit var sharedPrefsEdit: SharedPreferences.Editor
 
     private val _firstName = MutableLiveData<String>()
     val firstName: LiveData<String>
@@ -30,8 +30,8 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
     val email: LiveData<String>
         get() = _email
 
-    private val _avatarUri = MutableLiveData<String>()
-    val avatarUri: LiveData<String>
+    private val _avatarUri = MutableLiveData<Uri>()
+    val avatarUri: LiveData<Uri>
         get() = _avatarUri
 
     init {
@@ -39,13 +39,13 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
         _lastName.value = "Last name    ${appSettingPrefs.getString(LAST_NAME_KEY, "")}"
         _email.value =    "Email        ${appSettingPrefs.getString(EMAIL_KEY, "")}"
         // TODO
-        _avatarUri.value = appSettingPrefs.getString(AVATAR_KEY, "@drawable/avatar")
+        _avatarUri.value = appSettingPrefs.getString(AVATAR_KEY, "")?.toUri()
         Log.i("Avatar", _avatarUri.value.toString())
     }
 
-    fun setAvatarUri(uri: String) {
+    fun setAvatarUri(uri: Uri) {
         _avatarUri.value = uri
-        appSettingPrefs.edit().putString(AVATAR_KEY, uri).apply()
+        appSettingPrefs.edit().putString(AVATAR_KEY, uri.toString()).apply()
     }
 
 }

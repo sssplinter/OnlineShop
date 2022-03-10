@@ -19,8 +19,6 @@ class ProductListViewModel(context: Context) : ViewModel() {
 
     private val priceBound = MutableLiveData<Float>(1000.0F)
 
-    private val currencyParser = CurrencyParser()
-
     lateinit var data: HashMap<String, Pair<Double, Double>>
 
     val products = MediatorLiveData<List<Product>>().apply {
@@ -30,7 +28,7 @@ class ProductListViewModel(context: Context) : ViewModel() {
                 val filteredProducts = products.filter { product ->
                     (product.title.startsWith(query, true)
                             || product.category.startsWith(query, true))
-                            && product.price < price!!
+                            && (product.price < price!! || price <= 0)
                 }
                 value = filteredProducts
             }
@@ -48,7 +46,6 @@ class ProductListViewModel(context: Context) : ViewModel() {
             filter(_products.value, query.value, it)
         }
     }
-
 
     fun fetchProducts() {
         viewModelScope.launch {
@@ -70,20 +67,5 @@ class ProductListViewModel(context: Context) : ViewModel() {
     fun setPriceBound(newPrice: Float) {
         priceBound.value = newPrice
     }
-
-//    fun test(){
-//        viewModelScope.launch {
-//            testShowCurrency()
-//            Log.i("Cur", data.toString())
-//        }
-//    }
-//
-//    private suspend fun testShowCurrency(){
-//
-//        withContext(Dispatchers.IO){
-//            currencyParser.update()
-//            data = currencyParser.data
-//        }
-//    }
 
 }

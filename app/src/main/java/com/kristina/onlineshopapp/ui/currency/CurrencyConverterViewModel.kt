@@ -18,10 +18,6 @@ class CurrencyConverterViewModel : ViewModel() {
     val currencyData: LiveData<HashMap<String, Pair<Double, Double>>>
         get() = _currencyData
 
-//    init {
-//        updateExchangeRate()
-//    }
-
     fun updateExchangeRate() {
         viewModelScope.launch {
             withContext(Dispatchers.Default){
@@ -29,7 +25,5 @@ class CurrencyConverterViewModel : ViewModel() {
             }
             _currencyData.value = currencyParser.data
         }
-
-
     }
 }

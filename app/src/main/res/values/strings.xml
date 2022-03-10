@@ -24,5 +24,7 @@
     <string name="euro">EUR</string>
     <string name="rub">RUB</string>
     <string name="converter">Converter</string>
+    <string name="converter_title">Exchange rate in Belarus today</string>
+    <string name="profile_image">Profile image</string>
 
 </resources>

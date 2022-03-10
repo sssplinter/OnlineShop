@@ -34,8 +34,8 @@
                 android:layout_height="80dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="20dp"
-                android:contentDescription="Profile image"
-                android:src="@{viewModel.avatarUri}" />
+                android:contentDescription="@string/profile_image"
+                android:src="@drawable/ic_profile" />
 
             <TextView
                 android:id="@+id/first_name"

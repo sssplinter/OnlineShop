@@ -7,12 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import com.kristina.onlineshopapp.R
 import com.kristina.onlineshopapp.databinding.ProductListFragmentBinding
 import com.kristina.onlineshopapp.domain.model.Product
+import com.kristina.onlineshopapp.utils.CONNECTION_ERROR
+import com.kristina.onlineshopapp.utils.PRODUCT
+import com.kristina.onlineshopapp.utils.isOnline
 
 class ProductListFragment : Fragment(), ProductAdapter.ProductRececlerViewItemInterface {
 
@@ -26,6 +30,10 @@ class ProductListFragment : Fragment(), ProductAdapter.ProductRececlerViewItemIn
         val binding: ProductListFragmentBinding = DataBindingUtil.inflate(
             inflater, R.layout.product_list_fragment, container, false
         )
+
+        if(!isOnline(requireContext())){
+            Toast.makeText(context, CONNECTION_ERROR, Toast.LENGTH_LONG).show()
+        }
 
         val viewModelFactory = ProductListViewModelFactory(binding.root.context.applicationContext)
         viewModel = ViewModelProvider(this, viewModelFactory).get(ProductListViewModel::class.java)
@@ -45,7 +53,7 @@ class ProductListFragment : Fragment(), ProductAdapter.ProductRececlerViewItemIn
             }
         })
 
-        binding.slider.addOnChangeListener { slider, value, fromUser ->
+        binding.slider.addOnChangeListener { _, value, _ ->
             viewModel?.setPriceBound(value)
         }
 
@@ -65,7 +73,7 @@ class ProductListFragment : Fragment(), ProductAdapter.ProductRececlerViewItemIn
 
     override fun sendProductToFragment(product: Product) {
         findNavController().navigate(
-            R.id.action_productListFragment_to_productInfoFragment, bundleOf("product" to product)
+            R.id.action_productListFragment_to_productInfoFragment, bundleOf(PRODUCT to product)
         )
     }
 

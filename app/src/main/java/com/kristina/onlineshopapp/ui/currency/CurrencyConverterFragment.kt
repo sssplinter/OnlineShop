@@ -5,22 +5,26 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.kristina.onlineshopapp.databinding.FragmentCurrencyConverterBinding
+import com.kristina.onlineshopapp.utils.CONNECTION_ERROR
+import com.kristina.onlineshopapp.utils.isOnline
 
 class CurrencyConverterFragment : Fragment() {
-
-    lateinit var binding: FragmentCurrencyConverterBinding
-    lateinit var viewModel: CurrencyConverterViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 
-        binding = FragmentCurrencyConverterBinding.inflate(layoutInflater, container, false)
+        val binding = FragmentCurrencyConverterBinding.inflate(layoutInflater, container, false)
 
-        viewModel = ViewModelProvider(this).get(CurrencyConverterViewModel::class.java)
+        val viewModel = ViewModelProvider(this).get(CurrencyConverterViewModel::class.java)
+
+        if (!isOnline(requireContext())) {
+            Toast.makeText(context, CONNECTION_ERROR, Toast.LENGTH_LONG).show()
+        }
 
         binding.update.setOnClickListener {
             binding.loading.visibility = View.VISIBLE
@@ -31,7 +35,7 @@ class CurrencyConverterFragment : Fragment() {
         }
 
         viewModel.currencyData.observe(viewLifecycleOwner) { currencyData ->
-            if(currencyData.size != 0) {
+            if (currencyData.size != 0) {
                 val usd = currencyData["usd"]
                 binding.usdBuy.text = usd?.first.toString()
                 binding.usdSell.text = usd?.second.toString()

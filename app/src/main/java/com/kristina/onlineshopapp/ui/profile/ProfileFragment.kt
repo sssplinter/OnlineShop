@@ -52,13 +52,18 @@ class ProfileFragment : Fragment(), OnMapReadyCallback {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        setHasOptionsMenu(true)
 
         binding = FragmentProfileBinding.inflate(inflater, container, false)
 
         viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
 
         binding.viewModel = viewModel
+
+//        viewModel.avatarUri.observe(viewLifecycleOwner) { uri ->
+//            if (uri != null){
+//                binding.avatarImg.setImageURI(uri)
+//            }
+//        }
 
         binding.map.onCreate(savedInstanceState)
         binding.map.onResume()
@@ -142,21 +147,11 @@ class ProfileFragment : Fragment(), OnMapReadyCallback {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK && requestCode == pickImage) {
             imageUri = data?.data
-            viewModel.setAvatarUri(imageUri.toString())
-            binding.avatarImg.setImageURI(imageUri)
+            if (imageUri != null) {
+                viewModel.setAvatarUri(imageUri!!)
+                binding.avatarImg.setImageURI(imageUri)
+            }
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater?.inflate(R.menu.overflow_menu, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(
-            item!!,
-            requireView().findNavController()
-        )
     }
 
     override fun onMapReady(googleMap: GoogleMap?) {
