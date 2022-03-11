@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.Navigation.findNavController
 import com.kristina.onlineshopapp.R
+import com.kristina.onlineshopapp.utils.REGISTRATION_WARNING
 
 const val MODE_KEY = "NightMode"
 const val FIRST_NAME_KEY = "FirstName"
@@ -30,7 +31,6 @@ class RegistrationFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
 
         setHasOptionsMenu(false)
 
@@ -57,7 +57,6 @@ class RegistrationFragment : Fragment() {
         val lastName = view.findViewById<EditText>(R.id.last_name)
         val email = view.findViewById<EditText>(R.id.email)
 
-
         view.findViewById<Button>(R.id.register_button).setOnClickListener {
 
             if (firstName.text.isNotEmpty() && lastName.text.isNotEmpty() && email.text.isNotEmpty()) {
@@ -73,11 +72,7 @@ class RegistrationFragment : Fragment() {
                     R.id.action_registrationFragment_to_profileFragment
                 )
             } else {
-                Toast.makeText(
-                    context,
-                    "All fields must be filled in to register.",
-                    Toast.LENGTH_LONG
-                ).show()
+                Toast.makeText(context, REGISTRATION_WARNING, Toast.LENGTH_LONG).show()
             }
         }
 

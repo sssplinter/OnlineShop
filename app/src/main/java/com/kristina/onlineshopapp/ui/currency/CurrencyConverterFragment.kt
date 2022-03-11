@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.kristina.onlineshopapp.databinding.FragmentCurrencyConverterBinding
-import com.kristina.onlineshopapp.utils.CONNECTION_ERROR
+import com.kristina.onlineshopapp.utils.CONNECTION_WARNING
 import com.kristina.onlineshopapp.utils.isOnline
 
 class CurrencyConverterFragment : Fragment() {
@@ -23,7 +23,7 @@ class CurrencyConverterFragment : Fragment() {
         val viewModel = ViewModelProvider(this).get(CurrencyConverterViewModel::class.java)
 
         if (!isOnline(requireContext())) {
-            Toast.makeText(context, CONNECTION_ERROR, Toast.LENGTH_LONG).show()
+            Toast.makeText(context, CONNECTION_WARNING, Toast.LENGTH_LONG).show()
         }
 
         binding.update.setOnClickListener {

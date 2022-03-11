@@ -14,7 +14,7 @@ import androidx.navigation.fragment.findNavController
 import com.kristina.onlineshopapp.R
 import com.kristina.onlineshopapp.databinding.ProductListFragmentBinding
 import com.kristina.onlineshopapp.domain.model.Product
-import com.kristina.onlineshopapp.utils.CONNECTION_ERROR
+import com.kristina.onlineshopapp.utils.CONNECTION_WARNING
 import com.kristina.onlineshopapp.utils.PRODUCT
 import com.kristina.onlineshopapp.utils.isOnline
 
@@ -32,7 +32,7 @@ class ProductListFragment : Fragment(), ProductAdapter.ProductRececlerViewItemIn
         )
 
         if(!isOnline(requireContext())){
-            Toast.makeText(context, CONNECTION_ERROR, Toast.LENGTH_LONG).show()
+            Toast.makeText(context, CONNECTION_WARNING, Toast.LENGTH_LONG).show()
         }
 
         val viewModelFactory = ProductListViewModelFactory(binding.root.context.applicationContext)

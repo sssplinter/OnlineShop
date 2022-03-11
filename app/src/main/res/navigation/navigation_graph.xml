@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/registrationFragment">
+    app:startDestination="@id/productListFragment">
 
     <fragment
         android:id="@+id/registrationFragment"
@@ -12,20 +12,17 @@
         tools:layout="@layout/fragment_registration">
         <action
             android:id="@+id/action_registrationFragment_to_profileFragment"
-            app:destination="@id/profileFragment"
-            app:popUpToInclusive="false" />
-        <action
-            android:id="@+id/action_registrationFragment_to_productListFragment"
-            app:destination="@id/productListFragment" />
-        <action
-            android:id="@+id/action_registrationFragment_to_favoritesListFragment"
-            app:destination="@id/favoritesListFragment" />
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.kristina.onlineshopapp.ui.profile.ProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+    </fragment>
     <fragment
         android:id="@+id/productListFragment"
         android:name="com.kristina.onlineshopapp.ui.product.list.ProductListFragment"
@@ -65,5 +62,9 @@
         android:id="@+id/currencyConverterFragment"
         android:name="com.kristina.onlineshopapp.ui.currency.CurrencyConverterFragment"
         android:label="Currency Converter" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.kristina.onlineshopapp.SettingsFragment"
+        android:label="Settings" />
 
 </navigation>

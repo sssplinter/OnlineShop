@@ -1,7 +1,6 @@
 package com.kristina.onlineshopapp.ui.product.productInfo
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +11,7 @@ import androidx.navigation.Navigation
 import com.kristina.onlineshopapp.R
 import com.kristina.onlineshopapp.databinding.ProductInfoFragmentBinding
 import com.kristina.onlineshopapp.domain.model.Product
-import com.kristina.onlineshopapp.utils.OPEN_SOURCE_ERROR
+import com.kristina.onlineshopapp.utils.OPEN_SOURCE_WARNING
 import com.kristina.onlineshopapp.utils.PRODUCT
 import com.kristina.onlineshopapp.utils.isOnline
 
@@ -46,7 +45,7 @@ class ProductInfoFragment : Fragment() {
                     R.id.action_productInfoFragment_to_productPageFragment
                 )
             } else{
-                Toast.makeText(context, OPEN_SOURCE_ERROR , Toast.LENGTH_LONG).show()
+                Toast.makeText(context, OPEN_SOURCE_WARNING , Toast.LENGTH_LONG).show()
             }
         }
 

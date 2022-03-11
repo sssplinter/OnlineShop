@@ -5,9 +5,10 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.util.Log
 
-const val CONNECTION_ERROR = "There is no internet connection. Data may be outdated."
+const val CONNECTION_WARNING = "There is no internet connection. Data may be outdated."
 const val PRODUCT = "product"
-const val OPEN_SOURCE_ERROR = "There is no internet connection. Unable to open source of product."
+const val OPEN_SOURCE_WARNING = "There is no internet connection. Unable to open source of product."
+const val REGISTRATION_WARNING = "All fields must be filled in to register."
 
 fun isOnline(context: Context): Boolean {
     val connectivityManager =
