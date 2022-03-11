@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/drawable-v24/ic_broken_image.xml" value="0.1361111111111111" />
+        <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/drawable-v24/loading_img.xml" value="0.1361111111111111" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/drawable/android.xml" value="0.24351851851851852" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/drawable/button.xml" value="0.1" />
@@ -15,7 +16,10 @@
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/drawable/ic_converter.xml" value="0.1" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/drawable/ic_heart.xml" value="0.12314814814814815" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/drawable/ic_heart_off.xml" value="0.12314814814814815" />
+        <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/drawable/ic_heart_on.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/drawable/ic_profile.xml" value="0.1" />
+        <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/drawable/ic_search_black_24dp.xml" value="0.14814814814814814" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/drawable/ic_settings.xml" value="0.12407407407407407" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/drawable/ic_star_off.xml" value="0.12314814814814815" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/drawable/ic_star_on.xml" value="0.12314814814814815" />
@@ -26,7 +30,7 @@
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/layout/fragment_favorite_list.xml" value="0.22010869565217392" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/layout/fragment_favorites_list.xml" value="0.22010869565217392" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/layout/fragment_product_page.xml" value="0.1" />
-        <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/layout/fragment_profile.xml" value="0.1328125" />
+        <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/layout/fragment_profile.xml" value="0.2" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/layout/fragment_registration.xml" value="0.2" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/layout/fragment_settings.xml" value="0.4" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/layout/nav_header.xml" value="0.13072916666666667" />
@@ -36,6 +40,7 @@
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/menu/bottom_menu.xml" value="0.4" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/menu/navdrawer_menu.xml" value="0.264" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/menu/overflow_menu.xml" value="0.2" />
+        <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/krist/AndroidStudioProjects/projects/lab2/app/src/main/res/xml/searchable.xml" value="0.1" />
       </map>
     </option>

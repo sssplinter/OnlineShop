@@ -10,7 +10,7 @@ import com.kristina.onlineshopapp.R
 import com.kristina.onlineshopapp.databinding.ProductItemBinding
 import com.kristina.onlineshopapp.domain.model.Product
 
-class ProductAdapter(private val productRececlerViewItemInterface: ProductRececlerViewItemInterface) : ListAdapter<Product, ProductViewHolder>(this) {
+class ProductAdapter(private val productRecyclerViewItemInterface: ProductRececlerViewItemInterface) : ListAdapter<Product, ProductViewHolder>(this) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         return ProductViewHolder.from(parent)
@@ -20,13 +20,13 @@ class ProductAdapter(private val productRececlerViewItemInterface: ProductRececl
         val product = getItem(position)
         holder.itemView.setOnClickListener {
             if (position != RecyclerView.NO_POSITION) {
-                productRececlerViewItemInterface.sendProductToFragment(product)
+                productRecyclerViewItemInterface.sendProductToFragment(product)
             }
 
         }
         holder.itemView.findViewById<ToggleButton>(R.id.favorite_btn).setOnClickListener {
             if (position != RecyclerView.NO_POSITION) {
-                productRececlerViewItemInterface.setProductFavoriteStatus(product)
+                productRecyclerViewItemInterface.setProductFavoriteStatus(product)
             }
         }
         holder.bind(product)
@@ -42,7 +42,6 @@ class ProductAdapter(private val productRececlerViewItemInterface: ProductRececl
         override fun areContentsTheSame(
             oldItem: Product, newItem: Product
         ): Boolean {
-            //TODO Сравнить данные которые будут отображаться
             return ((oldItem.title == newItem.title)
                     && (oldItem.favourite == newItem.favourite)
                     && (oldItem.price == newItem.price))

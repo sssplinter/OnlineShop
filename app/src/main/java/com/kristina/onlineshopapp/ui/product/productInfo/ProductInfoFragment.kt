@@ -28,7 +28,7 @@ class ProductInfoFragment : Fragment() {
         binding = ProductInfoFragmentBinding.inflate(inflater, container, false)
         var product: Product? = null
 
-        var bundle = arguments
+        val bundle = arguments
         if (bundle != null) {
             product = bundle.getParcelable<Product>(PRODUCT)
         }

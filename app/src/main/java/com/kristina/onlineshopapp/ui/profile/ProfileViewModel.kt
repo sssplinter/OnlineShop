@@ -3,20 +3,17 @@ package com.kristina.onlineshopapp.ui.profile
 import android.app.Application
 import android.content.SharedPreferences
 import android.net.Uri
-import android.util.Log
 import androidx.core.net.toUri
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.kristina.onlineshopapp.ui.registration.AVATAR_KEY
-import com.kristina.onlineshopapp.ui.registration.EMAIL_KEY
-import com.kristina.onlineshopapp.ui.registration.FIRST_NAME_KEY
-import com.kristina.onlineshopapp.ui.registration.LAST_NAME_KEY
+import com.kristina.onlineshopapp.utils.APP_PREFS
+import com.kristina.onlineshopapp.utils.*
 
 class ProfileViewModel(application: Application) : AndroidViewModel(application) {
 
-    var appSettingPrefs: SharedPreferences =
-        application.getSharedPreferences("AppSettingPrefs", 0)!!
+    private var appSettingPrefs: SharedPreferences =
+        application.getSharedPreferences(APP_PREFS, 0)!!
 
     private val _firstName = MutableLiveData<String>()
     val firstName: LiveData<String>
@@ -35,12 +32,10 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
         get() = _avatarUri
 
     init {
-        _firstName.value ="First name   ${appSettingPrefs.getString(FIRST_NAME_KEY, "")}"
-        _lastName.value = "Last name    ${appSettingPrefs.getString(LAST_NAME_KEY, "")}"
-        _email.value =    "Email        ${appSettingPrefs.getString(EMAIL_KEY, "")}"
-        // TODO
+        _firstName.value = appSettingPrefs.getString(FIRST_NAME_KEY, "")
+        _lastName.value = appSettingPrefs.getString(LAST_NAME_KEY, "")
+        _email.value = appSettingPrefs.getString(EMAIL_KEY, "")
         _avatarUri.value = appSettingPrefs.getString(AVATAR_KEY, "")?.toUri()
-        Log.i("Avatar", _avatarUri.value.toString())
     }
 
     fun setAvatarUri(uri: Uri) {

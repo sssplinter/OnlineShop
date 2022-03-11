@@ -9,6 +9,15 @@ const val CONNECTION_WARNING = "There is no internet connection. Data may be out
 const val PRODUCT = "product"
 const val OPEN_SOURCE_WARNING = "There is no internet connection. Unable to open source of product."
 const val REGISTRATION_WARNING = "All fields must be filled in to register."
+const val CURRENT_LOC = "Current location"
+const val PERMISSION_ID = 42
+const val TURN_ON_LOCATION = "Turn on location"
+const val MODE_KEY = "NightMode"
+const val FIRST_NAME_KEY = "FirstName"
+const val LAST_NAME_KEY = "LastName"
+const val EMAIL_KEY = "Email"
+const val AVATAR_KEY = "Avatar"
+const val APP_PREFS = "AppSettingPrefs"
 
 fun isOnline(context: Context): Boolean {
     val connectivityManager =

@@ -1,5 +1,6 @@
 package com.kristina.onlineshopapp.ui.product.webPage
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -17,22 +18,19 @@ class ProductPageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = FragmentProductPageBinding.inflate(
-            inflater, container, false
-        )
-
-        setHasOptionsMenu(false)
+        binding = FragmentProductPageBinding.inflate(inflater, container, false)
 
         return binding.root
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         with(binding.webView) {
             webViewClient = WebViewClient()
             settings.javaScriptEnabled = true
-           loadUrl("https://fakestoreapi.com/")
+            loadUrl("https://fakestoreapi.com/")
         }
     }
 }

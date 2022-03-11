@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">OnlineShopApp</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="last_name">Last name</string>
-    <string name="email">Email</string>
+    <string name="last_name">Input last name</string>
+    <string name="email">Input email</string>
     <string name="register">REGISTER</string>
     <string name="registration">Registration</string>
-    <string name="first_name">First name</string>
+    <string name="first_name">Input first name</string>
     <string name="profile">Profile</string>
     <string name="about">About</string>
 
@@ -27,8 +27,9 @@
     <string name="converter">Converter</string>
     <string name="converter_title">Exchange rate today</string>
     <string name="profile_image">Profile image</string>
-    <string name="application_settings">Application Settings</string>
+    <string name="application_settings">Settings</string>
     <string name="dark_mode">Dark Mode</string>
     <string name="change_mode">Change Mode</string>
+    <string name="save">Save</string>
 
 </resources>

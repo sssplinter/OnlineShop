@@ -12,7 +12,6 @@ import androidx.navigation.fragment.findNavController
 import com.kristina.onlineshopapp.R
 import com.kristina.onlineshopapp.databinding.FragmentFavoritesListBinding
 import com.kristina.onlineshopapp.domain.model.Product
-import com.kristina.onlineshopapp.ui.product.list.ProductAdapter
 
 class FavoritesListFragment : Fragment(), FavoritesAdapter.FavoriteProductRecyclerViewItemInterface {
 
@@ -22,8 +21,7 @@ class FavoritesListFragment : Fragment(), FavoritesAdapter.FavoriteProductRecycl
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-
+    ): View {
 
         binding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_favorites_list, container, false
@@ -35,7 +33,7 @@ class FavoritesListFragment : Fragment(), FavoritesAdapter.FavoriteProductRecycl
         val adapter = FavoritesAdapter(this)
         binding.favoritesList.adapter = adapter
 
-        viewModel?.favorites?.observe(viewLifecycleOwner) {
+        viewModel.favorites.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
 
@@ -43,7 +41,7 @@ class FavoritesListFragment : Fragment(), FavoritesAdapter.FavoriteProductRecycl
     }
 
     override fun addComment(product: Product, comment: String) {
-        viewModel?.addComment(product, comment)
+        viewModel.addComment(product, comment)
     }
 
     override fun sendProductToFragment(product: Product) {

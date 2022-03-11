@@ -1,4 +1,4 @@
-package com.kristina.onlineshopapp
+package com.kristina.onlineshopapp.ui.settings
 
 import android.content.res.Configuration
 import android.os.Bundle
@@ -8,10 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.appcompat.widget.SwitchCompat
-import com.google.android.material.switchmaterial.SwitchMaterial
-import com.kristina.onlineshopapp.ui.registration.APP_PREFS
-import com.kristina.onlineshopapp.ui.registration.MODE_KEY
+import com.kristina.onlineshopapp.R
+import com.kristina.onlineshopapp.utils.APP_PREFS
+import com.kristina.onlineshopapp.utils.MODE_KEY
 
 class SettingsFragment : Fragment() {
 

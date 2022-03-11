@@ -25,7 +25,6 @@ class FavoritesAdapter(private val onClick: FavoriteProductRecyclerViewItemInter
         override fun areContentsTheSame(
             oldItem: Product, newItem: Product
         ): Boolean {
-            //TODO Сравнить данные которые будут отображаться
             return ((oldItem.title == newItem.title)
                     && (oldItem.favourite == newItem.favourite)
                     && (oldItem.price == newItem.price))
@@ -81,7 +80,6 @@ class FavoritesAdapter(private val onClick: FavoriteProductRecyclerViewItemInter
     }
 
     interface FavoriteProductRecyclerViewItemInterface: ProductAdapter.ProductRececlerViewItemInterface{
-
         fun addComment(product: Product, comment: String)
     }
 

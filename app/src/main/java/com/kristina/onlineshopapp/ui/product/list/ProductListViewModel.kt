@@ -2,7 +2,6 @@ package com.kristina.onlineshopapp.ui.product.list
 
 import android.content.Context
 import androidx.lifecycle.*
-import com.kristina.onlineshopapp.currency.CurrencyParser
 import com.kristina.onlineshopapp.data.db.ShopDatabase
 import com.kristina.onlineshopapp.data.repository.ProductRepository
 import com.kristina.onlineshopapp.domain.model.Product
@@ -15,9 +14,9 @@ class ProductListViewModel(context: Context) : ViewModel() {
 
     private var _products = productRepository.products
 
-    private val query = MutableLiveData<String>("")
+    private val query = MutableLiveData("")
 
-    private val priceBound = MutableLiveData<Float>(1000.0F)
+    private val priceBound = MutableLiveData(1000.0F)
 
     lateinit var data: HashMap<String, Pair<Double, Double>>
 
