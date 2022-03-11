@@ -35,14 +35,6 @@ class CurrencyParser {
 
         data[resList[0]] = resList[2].toDouble() to resList[4].toDouble()
         data[resList[5]] = resList[7].toDouble() to resList[9].toDouble()
-//        var buy = resList[12].toDouble()
-//        buy *= 100000
-//        buy = round(buy)
-//        buy /= 1000f
-//        var sell = resList[14].toDouble()
-//        sell *= 100000
-//        sell = round(sell)
-//        sell /= 1000f
         data[resList[10]] =resList[12].toDouble() to resList[14].toDouble()
     }
 }

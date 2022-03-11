@@ -3,7 +3,6 @@ package com.kristina.onlineshopapp.domain.model
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
-
 @Parcelize
 data class Product(
     val id: Long,
